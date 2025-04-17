@@ -1,3 +1,5 @@
+from src.Product import Product
+
 class Category:  # Название класса
     """ Класс для описания категорий продуктов. """
 
@@ -18,18 +20,18 @@ class Category:  # Название класса
         Category.product_count += len(self.products)
 
     @property
-    # def products(self):
-    #     return "\n".join(
-    #         [f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт." for product in self.__products])
-
     def products(self):
         product_str = " "
         for product in self.__products:
             product_str += f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт.\n"
         return product_str
 
-    def add_product(self, new_product):
-        self.__products.append(new_product)
+    # def products(self):
+    #     return "\n".join(
+    #         [f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт." for product in self.__products])
+
+    def add_product(self, product: Product):
+        self.__products.append(product)
         Category.product_count += 1
 
     @property
