@@ -1,5 +1,7 @@
 import pytest
+
 from src.Category import Category
+from src.Categoty_iter import CategoryIterator
 from src.Product import Product
 
 
@@ -10,8 +12,8 @@ def some_category():
         description="Смартфоны, как средство не только коммуникации, но и получения дополнительных функций для удобства жизни",
         products=[
             Product("Iphone 15", "512GB, Gray space", 210000.0, 8),
-            Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 14)
-        ]
+            Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 14),
+        ],
     )
 
 
@@ -22,11 +24,16 @@ def second_category():
         description="Современный телевизор, который позволяет наслаждаться просмотром, станет вашим другом и помощником",
         products=[
             Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5),
-            Product("55\" QLED 4K", "Фоновая подсветка", 123000.0, 7)
-        ]
+            Product('55" QLED 4K', "Фоновая подсветка", 123000.0, 7),
+        ],
     )
 
 
 @pytest.fixture
 def product():
     return Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
+
+
+@pytest.fixture
+def category_iterator(second_category):
+    return CategoryIterator(second_category)

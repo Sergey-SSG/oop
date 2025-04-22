@@ -1,7 +1,10 @@
 from src.Product import Product
 
+
 class Category:  # Название класса
-    """ Класс для описания категорий продуктов. """
+    """
+    Класс для описания категорий продуктов.
+    """
 
     # Атрибуты (свойства) класса
     name: str  # название
@@ -11,7 +14,12 @@ class Category:  # Название класса
     product_count = 0
 
     def __init__(self, name, description, products=None):  # Конструктор
-        """ Метод для инициализации класса категорий продуктов. Задаем значения атрибутам категорий продуктов. """
+        """
+        Метод для инициализации класса категорий продуктов. Задаем значения атрибутам категорий продуктов.
+        :param name:
+        :param description:
+        :param products:
+        """
         # Атрибуты (свойства) класса
         self.name = name
         self.description = description
@@ -19,11 +27,14 @@ class Category:  # Название класса
         Category.category_count += 1
         Category.product_count += len(self.products)
 
+    def __str__(self):
+        return f"\n{self.name}, количество продуктов: {sum(product.quantity for product in self.__products)} шт.\n"
+
     @property
     def products(self):
         product_str = " "
         for product in self.__products:
-            product_str += f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт.\n"
+            product_str += f"{str(product)}\n"
         return product_str
 
     # def products(self):
