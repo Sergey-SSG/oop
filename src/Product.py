@@ -1,5 +1,8 @@
 class Product:  # Название класса
-    """ Класс для описания продуктов. """
+    """
+    Класс для описания продуктов.
+    """
+
     # Атрибуты (свойства) класса
     name: str  # название
     description: str  # описание
@@ -7,12 +10,32 @@ class Product:  # Название класса
     quantity: int  # количество в наличии
 
     def __init__(self, name, description, price, quantity):  # Конструктор
-        """ Метод для инициализации класса продуктов. Задаем значения атрибутам продуктов. """
+        """
+        Метод для инициализации класса продуктов. Задаем значения атрибутам продуктов.
+        :param name:
+        :param description:
+        :param price:
+        :param quantity:
+        """
         # Атрибуты (свойства) класса
         self.name = name
         self.description = description
         self.__price = price
         self.quantity = quantity
+
+    def __str__(self):
+        return f"{self.name}, {self.__price} руб. Остаток: {self.quantity} шт."
+
+    def __add__(self, other):
+        """
+        Для получения суммы всех товаров на складе нужно перемножить стоимость и количество всех товаров в наличии.
+        :param other:
+        :return summ:
+        """
+        if isinstance(other, Product):
+            summ = self.__price * self.quantity + other.__price * other.quantity
+            return summ
+        return NotImplemented
 
     @classmethod
     def new_product(cls, name, description, price, quantity):

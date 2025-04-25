@@ -24,7 +24,7 @@ def create_object_json(data):
 
 
 if __name__ == "__main__":
-    row_data= read_json("../data/products.json")
+    row_data = read_json("../data/products.json")
     categorys_data = create_object_json(row_data)
     print(categorys_data)
     print(categorys_data[0].name)
