@@ -32,10 +32,12 @@ class Product:  # Название класса
         :param other:
         :return summ:
         """
-        if isinstance(other, Product):
+        if type(other) is Product:
+            if not isinstance(other, Product):
+                raise TypeError("Операция поддерживается только между объектами типа 'Product'")
             summ = self.__price * self.quantity + other.__price * other.quantity
             return summ
-        return NotImplemented
+        raise TypeError
 
     @classmethod
     def new_product(cls, name, description, price, quantity):
