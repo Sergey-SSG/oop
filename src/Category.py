@@ -42,8 +42,11 @@ class Category:  # Название класса
     #         [f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт." for product in self.__products])
 
     def add_product(self, product: Product):
-        self.__products.append(product)
-        Category.product_count += 1
+        if isinstance(product, Product):
+            self.__products.append(product)
+            Category.product_count += 1
+        else:
+            raise TypeError
 
     @property
     def add_product_in_list(self):
