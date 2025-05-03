@@ -1,13 +1,11 @@
 import pytest
 
-from src.Product import Product
-
 
 def test_category_init(some_category, second_category):
     assert some_category.name == "Смартфоны"
     assert (
-            some_category.description
-            == "Смартфоны, как средство не только коммуникации, но и получения дополнительных функций для удобства жизни"
+        some_category.description
+        == "Смартфоны, как средство не только коммуникации, но и получения дополнительных функций для удобства жизни"
     )
     assert len(some_category.add_product_in_list) == 2
 

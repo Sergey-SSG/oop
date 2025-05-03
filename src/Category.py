@@ -1,7 +1,5 @@
-import pytest
-
-from src.Product import Product
 from src.exceptions import ZeroQuantityProduct
+from src.Product import Product
 
 
 class Category:  # Название класса
@@ -48,9 +46,9 @@ class Category:  # Название класса
         if isinstance(product, Product):
             try:
                 if product.quantity == 0:
-                    raise ZeroQuantityProduct ("Отсутствует товар")
+                    raise ZeroQuantityProduct("Отсутствует товар")
             except ZeroQuantityProduct as e:
-                print(str(e))
+                print(e)
             else:
                 self.__products.append(product)
                 Category.product_count += 1

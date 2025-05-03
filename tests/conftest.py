@@ -62,11 +62,5 @@ def product_lawn_grass2():
 
 
 @pytest.fixture
-
-
 def without_category():
-    return Category(
-        name="Пустая категория",
-        description="Категория без продуктов",
-        products=[]
-    )
+    return Category(name="Пустая категория", description="Категория без продуктов", products=[])
