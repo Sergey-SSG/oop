@@ -1,4 +1,8 @@
-class Product:  # Название класса
+from src.BaseProduct import BaseProduct
+from src.PrintMixin import PrintMixin
+
+
+class Product(BaseProduct, PrintMixin):  # Название класса
     """
     Класс для описания продуктов.
     """
@@ -22,6 +26,7 @@ class Product:  # Название класса
         self.description = description
         self.__price = price
         self.quantity = quantity
+        super().__init__()
 
     def __str__(self):
         return f"{self.name}, {self.__price} руб. Остаток: {self.quantity} шт."
