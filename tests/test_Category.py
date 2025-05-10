@@ -33,3 +33,18 @@ def test_category_iterator(category_iterator):
 
     with pytest.raises(StopIteration):
         next(category_iterator)
+
+
+def test_middle_price(some_category, without_category):
+    assert some_category.middle_price() == 120500.0
+    assert without_category.middle_price() == 0
+
+
+def test_custom_exception(capsys, some_category):
+    assert len(some_category.products) == 92
+
+    # product_add = Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 14)
+    # some_category.product = product_add
+    # message = capsys.readouterr()
+    # assert message.out.strip().split('\n')[-2] == "Отсутствует товар"
+    # assert message.out.strip().split('\n')[-1] == "Успешно завершено"
